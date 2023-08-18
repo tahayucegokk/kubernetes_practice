@@ -1,17 +1,19 @@
 # Cluster Create
 
+<code>
 gcloud container clusters create hello-world-5uvz --zone=us-central1-a --release-channel=regular --cluster-version=1.25.6-gke.200 --enable-autoscaling --num-nodes=3 --min-nodes=2 --max-nodes=6
+</code>
 
 # Pod Monitor
 
 <code>
 kubectl create namespace gmp-3r1f<br>
-gsutil cp gs://spls/gsp510/prometheus-app.yaml . <br>
-vim prometheus-app.yaml <br>
-kubectl apply -f prometheus-app.yaml -n gmp-3r1f <br>
-gsutil cp gs://spls/gsp510/pod-monitoring.yaml . <br>
-vim pod-monitoring.yaml <br>
-kubectl apply -f pod-monitoring.yaml -n gmp-3r1f <br>
+gsutil cp gs://spls/gsp510/prometheus-app.yaml . 
+vim prometheus-app.yaml 
+kubectl apply -f prometheus-app.yaml -n gmp-3r1f
+gsutil cp gs://spls/gsp510/pod-monitoring.yaml . 
+vim pod-monitoring.yaml 
+kubectl apply -f pod-monitoring.yaml -n gmp-3r1f 
 </code>
 
 # Deploy
@@ -29,6 +31,7 @@ severity=WARNING
 resource.type="k8s_pod"
 
 # Docker Loadbalancer
+
 <code>
 gcloud auth configure-docker us-central1-docker.pkg.dev
 export PROJECT_ID=$(gcloud config get-value project)
